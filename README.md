@@ -42,10 +42,157 @@ Resources
 - https://github.com/skooter500/OOP_Labtest1_2017_Starter
 - https://github.com/skooter500/OOP-LabTest1-2016
 
+# Week 4
+- [Recoding of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/ESgtwCRYdVpEu2R8RmRUJMQBZA1XDVfpVZrfLEhVDeOaBg?e=23d7az) 
+- I have decided to *keep* the word guys as a gender inclusive term as there is currently no good alternative
+
+## Lab 
+- Update the master branches of your repos to the code we worked on in Monday's class
+	```
+	git checkout master
+	git pull upstream master
+	```
+
+- Create a branch for your work today
+	```
+	git checkout -b lab4
+	```
+- Do some work on [the lab test from 2016](https://github.com/skooter500/OOP-LabTest1-2016/blob/master/readme.md). We started this in Monday's class, so you have some starter code.
+	- Create the Star class
+	- Load from the csv file into an ArrayList of Star objects
+	- Plot the stars to the grid
+
+- This is how you can load the file into an ArrayList of Star objects:
+
+	```Java
+	void loadStars()
+		{
+			Table table = loadTable("HabHYG15ly.csv", "header");
+			for(TableRow r:table.rows())
+			{
+				Star s = new Star(r);
+				stars.add(s);
+			}
+		}
+	```
+- You can make Constructors for Star class like this:
+
+	```Java
+	public Star(TableRow tr)
+		{
+			this(
+				tr.getInt("Hab?") == 1, 
+				tr.getString("Display Name"), 
+				tr.getFloat("Distance"),
+				tr.getFloat("Xg"),
+				tr.getFloat("Yg"),
+				tr.getFloat("Zg"),
+				tr.getFloat("AbsMag")
+			);
+		}
+		
+		public Star(boolean hab, String displayName, float distance, float xG, float yG, float zG, float absMag) {
+			this.hab = hab;
+			this.displayName = displayName;
+			this.distance = distance;
+			this.xG = xG;
+			this.yG = yG;
+			this.zG = zG;
+			this.absMag = absMag;
+		}
+	```
+- Commit and push your changes to the repo
+- Submit the URL to your repo via [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=yxdjdkjpX06M7Nq8ji_V2ou3qmFXqEdGlmiD1Myl3gNUNzFGRTJMUzNKVkoxRUZGNUE1VUE2WTZBQy4u)
+
+# Week 3
+- No class because of the bank holiday
+- Lots of amazing things happened in tech!
+
+### Tutorial
+- [Recording of the tutorial](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/ETZxKYxvO_JCgO8VAtE8NCkBnVPbhKHdeE5F3aiiEd95Kw?e=wYOaxB)
+
+### Lab
+
+What a time to be alive!
+
+Here are three ideas for todays lab. Pick one:
+
+- I had the idea to include git commits on forks of this repo each week as part of the grade. Making a branch for each lab and some commits each week counts towards the final mark. To do this I need a Python program that:
+	- loads a csv file with student names, numbers and repo urls
+	- Has a set of rules for allocating marks for commits like, creating a branch and making 5 commits each week on the branch gets a point
+	- Uses the Github api to get this info for each student url
+	- Outputs this to csv file
+	- Make a git repo for your project and share it with me!
+
+- If you are making a game for [Games Fleadh](https://gamesfleadh.ie/) or even if you dont plan, you should check out Godot Game Engine. Its Oh My Wow! Holy Jingle Bells. Download it watch my [classes on Godot](https://github.com/skooter500/GE2-2023) (unedited) or do some tutorials. 
+
+- Here is a lab all about [using git](gitlab.md)
+
+- Try these programming exercises:
+
+Update your forks and create a branch on your repos for your work today:
+
+Today you can edit the file Loops.java and try out these procedural drawing exercises. The variable ```mode``` will have the value of 0-9 depending on which number key is pressed. You can use it to switch the pattern being drawn:
+
+### if statement 
+
+- 3 exercises. Click the image for video:
+
+[![YouTube](http://img.youtube.com/vi/18kMOeygmHA/0.jpg)](https://www.youtube.com/watch?v=18kMOeygmHA)
+
+### for loops:
+
+Use a loop, rect and the HSB colour space:
+
+![Sketch](images/p31.png)
+
+Use a loop, rect and the HSB colour space:
+
+![Sketch](images/p35.png)
+
+Use a loop, rect and the HSB colour space:
+
+![Sketch](images/p36.png)
+
+Use a loop, ellipse, and the HSB colour space:
+
+![Sketch](images/p34.png)
+
+Use a loop, ellipse and the HSB color space to draw this:
+
+![Sketch](images/p33.png)
+
+Use a nested loop to draw this:
+
+![Sketch](images/p32.png)
+
+Try and draw this using ONE for loop. You will need the [text](https://processing.org/reference/text_.html) and [textAlign](https://processing.org/reference/textAlign_.html) functions:
+
+![Sketch](images/p27.png)
+
+Use a nested loop to draw this:
+
+![Sketch](images/p23.png)
+
+Use sin and cos to draw this:
+
+![Sketch](images/p30.png)
+
+Use line, sin and cos to draw regular polygons like squares, pentagons, octogons etc:
+
+![Sketch](images/p10.png)
+
+Draw a procedural star like these:
+
+![Sketch](images/p5.png)
+
 # Week 2 - Introduction to drawing with Processing libraries
 
 ## Lecture
 - [Recording of the class](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/EVMza0r4Z2hFuMUml87RwMsBE5yPcc7J_UArimAKbAFWlQ?e=ePh9de) 
+
+## Tutorial
+- [Recording](https://tudublin-my.sharepoint.com/:v:/g/personal/bryan_duggan_tudublin_ie/ERXftZvs-4xJsE8KwounpAsBVd85RQAn2jMdIJ1tsrAvfA?e=VG5uBx) 
 
 ## Lab
 
