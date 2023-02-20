@@ -9,10 +9,10 @@ public class Main
         processing.core.PApplet.runSketch( a, new HelloProcessing());
     }
 
-	public static void bugZap()
+	public static void Experiment()
 	{
 		String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new BugZap());
+        processing.core.PApplet.runSketch( a, new Experiment());
     }
 	
 	public static void main(String[] args)
@@ -23,7 +23,7 @@ public class Main
 		penny.setName("Penny");
 		penny.speak();
 
-		bugZap();
+		Experiment();
 	}
 	
 }
