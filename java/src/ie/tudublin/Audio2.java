@@ -17,6 +17,14 @@ public class Audio2 extends PApplet{
 
     FFT fft;
 
+    public static void main(String[] args) {
+        PitchSpeller ps = new PitchSpeller();
+        System.out.println(ps.spell(330));
+        System.out.println(ps.spell(420));
+        System.out.println(ps.spell(1980));
+    }
+    
+
     public void settings()
     {
         size(1024, 1024);
@@ -85,4 +93,33 @@ public class Audio2 extends PApplet{
 
         return d + (howFar / range1) * range2;
     }
+
+    public class PitchSpeller {
+
+        private static final float[] FREQUENCIES = {
+            261.63f, 277.18f, 293.66f, 311.13f, 329.63f, 349.23f,
+            369.99f, 392.00f, 415.30f, 440.00f, 466.16f, 493.88f
+        };
+    
+        private static final String[] SPELLINGS = {
+            "C", "C#", "D", "D#", "E", "F",
+            "F#", "G", "G#", "A", "A#", "B"
+        };
+    
+        public String spell(float frequency) {
+            int closestIndex = 0;
+            float closestDistance = Float.MAX_VALUE;
+            for (int i = 0; i < FREQUENCIES.length; i++) {
+                float distance = Math.abs(frequency - FREQUENCIES[i]);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = i;
+                }
+            }
+            return SPELLINGS[closestIndex];
+        }
+        
+    }
+    
+    
 }
