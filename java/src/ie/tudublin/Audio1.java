@@ -1,10 +1,10 @@
 package ie.tudublin;
 
-import ddf.minim.AudioBuffer;
-import ddf.minim.AudioInput;
-import ddf.minim.AudioPlayer;
-import ddf.minim.Minim;
-import processing.core.PApplet;
+import ddf.minim.AudioBuffer; //handles audio input
+import ddf.minim.AudioInput; //MP3 file
+import ddf.minim.AudioPlayer; //audio input from microphone
+import ddf.minim.Minim; // stores audio data from the audioplayer
+import processing.core.PApplet; // base class for all processing  sketches.
 
 public class Audio1 extends PApplet
 {
@@ -19,11 +19,11 @@ public class Audio1 extends PApplet
     float smoothedY = 0;
     float smoothedAmplitude = 0;
 
-    public void keyPressed() {
-		if (key >= '0' && key <= '9') {
+    public void keyPressed() {  //a method that is called whenever a key is pressed
+		if (key >= '0' && key <= '9') {  // this method will be called when a key is pressed
 			mode = key - '0';
 		}
-		if (keyCode == ' ') {
+		if (keyCode == ' ') { // check if the key that was pressed is the spacebar
             if (ap.isPlaying()) {
                 ap.pause();
             } else {
@@ -33,34 +33,34 @@ public class Audio1 extends PApplet
         }
 	}
 
-    public void settings()
+    public void settings() //states the size of the window to 1024x1000 with the P3D renderer
     {
         size(1024, 1000, P3D);
         //fullScreen(P3D, SPAN);
     }
 
-    public void setup()
+    public void setup() //called at beginning of the sketch to perform initialisation tasks.
     {
-        minim = new Minim(this);
+        minim = new Minim(this); // new instance of minimum class
         // Uncomment this to use the microphone
         // ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
         // ab = ai.mix; 
 
         // And comment the next two lines out
-        ap = minim.loadFile("heroplanet.mp3", 1024);
+        ap = minim.loadFile("heroplanet.mp3", 1024);// buffer size set to 1024
         ap.play();
-        ab = ap.mix;
+        ab = ap.mix; // used to get an audiobuffer object, which is stored in ab variable
         colorMode(HSB);
 
         y = height / 2;
-        smoothedY = y;        
+        smoothedY = y;      // variables are initialised 
     }
 
     float off = 0;
 
-    float lerpedBuffer[] = new float[1024];
+    float lerpedBuffer[] = new float[1024]; // the class uses lerping to create a smooth animation effect
 
-    public void draw()
+    public void draw() // called repeatedly and is responsible for rendering the visualizer
     {
         //background(0);
         float halfH = height / 2;
@@ -83,7 +83,9 @@ public class Audio1 extends PApplet
         float cx = width / 2;
         float cy = height / 2;
 
-        switch (mode) {
+// determine the mode of operation.
+//mode can be changed by pressing keys from 0 to 9.
+        switch (mode) { 
 			case 0:
                 background(0);
                 for(int i = 0 ; i < ab.size() ; i ++)
